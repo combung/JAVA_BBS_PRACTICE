@@ -1,10 +1,6 @@
 package com.web.kms_practice.Entites;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +8,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import com.web.kms_practice.DTOs.ArticleDTO;
+import org.hibernate.Internal;
+import org.hibernate.annotations.ColumnDefault;
 
 // @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +28,15 @@ public class Article {
 
     @Column
     private String content;
+
+    @Column(columnDefinition = "BIGINT DEFAULT 0")
+    private Long boomup = 0L;
+
+    @Column(columnDefinition = "BIGINT DEFAULT 0")
+    private Long boomdown = 0L;
+
+    @Column
+    private String auth = "dbehd";
 
     public void patch(ArticleDTO dto){
         if (dto.getTitle() != null){

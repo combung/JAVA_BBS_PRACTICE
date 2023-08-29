@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 
 import com.web.kms_practice.DTOs.ArticleDTO;
 import com.web.kms_practice.Entites.Article;
@@ -21,6 +23,7 @@ import com.web.kms_practice.Services.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Slf4j
 public class ArticleApiController {
     @Autowired
@@ -37,8 +40,6 @@ public class ArticleApiController {
 
     @PostMapping("/article/create")
     public ResponseEntity<Article> create(@RequestBody ArticleDTO dto){
-        
-        log.info(dto.toString());
         Article created = articleService.create(dto);
         if (created != null){
             return ResponseEntity.ok().body(created);
@@ -66,4 +67,25 @@ public class ArticleApiController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+   @PostMapping("article/{id}/boomup")
+   public ResponseEntity<Article> boomup(@PathVariable Long id) {
+       boolean recommandedState = articleService.recommand(id, true);
+       if (recommandedState) {
+           return ResponseEntity.ok().build();
+       } else {
+           return ResponseEntity.badRequest().build();
+       }
+   }
+       @PostMapping("article/{id}/boomdown")
+   public ResponseEntity<Article> boomdown(@PathVariable Long id){
+       boolean recommandedState = articleService.recommand(id, false);
+       if(recommandedState) {
+           return ResponseEntity.ok().build();
+       }else{
+           return ResponseEntity.badRequest().build();
+       }
+   }
+
+
 }
