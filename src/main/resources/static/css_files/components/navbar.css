@@ -1,0 +1,31 @@
+.navbar {
+    color :white;
+    background-color: rgb(0, 102, 255);
+    height: 30px;
+    text-decoration-line: none;
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#nav-title{
+    color:inherit;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration-line:inherit ;
+    text-decoration:inherit ;
+    overflow: hidden;
+
+}
+
+#nav-sub-bbs {
+    color:inherit;
+    font-size:14;
+    display: inline-flex;
+    margin-left: 10px;
+    margin-right:10px;
+    text-decoration-line:inherit ;
+    text-decoration:inherit ;
+    overflow: hidden;
+
+}

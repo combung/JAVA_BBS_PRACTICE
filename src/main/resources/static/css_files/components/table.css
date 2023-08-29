@@ -1,0 +1,39 @@
+.table-layout{
+    width:75%;
+}
+
+#table{
+    align-items: center;
+    background-color:gray;
+    width: 100%;
+    border-color: black;
+    border-style:solid;
+    border-width: 4px;
+    border-collapse: collapese;
+}
+#table-header{  
+    border-collapse: collapse;
+    background-color: red;
+    width:100%;
+    border-color: black;
+    border-style:solid;
+    border-width: 4px;
+    border-collapse: collapese;
+}
+
+.table-row{
+    text-align: center ;
+    width:10%;
+}
+
+
+#table-row-title{
+    text-align: left;
+    width:60%;
+}
+
+#table-row-title:hover{
+    font-weight: bold;
+}
+
+
