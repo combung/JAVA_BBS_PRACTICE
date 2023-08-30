@@ -1,6 +1,34 @@
 {{>components/header}}
     {{>components/navbar}}
-    {{>components/table}}
+    <div class="table-layout">    
+        <table id="table-header">
+            <tbody>
+                <tr>
+                    <th class="table-row" scope="row">번호</th>
+                    <td class="table-row" id="table-row-title">제목</td> 
+                    <td class="table-row">글쓴이</td> 
+                    <td class="table-row">따봉</td>
+                    <td class="table-row">안따봉</td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="table">
+            <tbody>
+                {{#articles}}
+                      <tr>
+                        <th class="table-row" scope="row">{{id}}</th>
+                        <td class="table-row" id="table-row-title"><a href="/articleview/{{id}}">{{title}}</a></td> 
+                        <td class="table-row">{{auth}}</td> 
+                        <td class="table-row">{{boomup}}</td>
+                        <td class="table-row">{{boomdown}}</td> 
+                    </tr>
+                {{/articles}}
+            </tbody>
+        </table>
+        <div>
+            <a id="create-button" href="/create">새글 작성</a>
+        </div>
+    </div>
 {{>components/footer}}
 
 

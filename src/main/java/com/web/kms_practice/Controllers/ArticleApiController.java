@@ -58,8 +58,14 @@ public class ArticleApiController {
         }
     }
 
+    @PatchMapping("/patchtest")
+    public void testfunction( @RequestBody ArticleDTO dto){
+        log.info(dto.toString());
+    }
+
     @DeleteMapping("/article/{id}")
     public ResponseEntity<Article> delete(@PathVariable Long id){
+        log.info("imhere");
         boolean deleteStatus = articleService.delete(id);
         if (deleteStatus){
             return ResponseEntity.ok().build();
