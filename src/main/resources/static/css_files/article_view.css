@@ -40,15 +40,17 @@
     width:100%;
     align-items: center;
     text-align: center;
+    position:relative;
 }
 
 .boom-button{
+    display: inline-block;
     color:white;
     display: inline-block;
     text-align:center;
     padding:8px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 5px;
+    margin-bottom: 0;
     border-radius: 7px;
 }
 
@@ -65,4 +67,15 @@
 
 #boom-down{
     background-color: red;
+}
+
+#correction{
+    background-color: aqua;
+    position:absolute;
+    right: 0;
+    text-decoration: none;
+}
+
+#delete-button{
+    background-color: blanchedalmond;
 }

@@ -5,11 +5,13 @@
         {{#article}}
             <h1 class="article-header">{{title}}</h1>
             <h4 class="article-auth">{{auth}}</h4>
-            <textarea class="article-content">content</textarea>
+            <textarea class="article-content">{{content}}</textarea>
         </div>
             <div class="button-layout">
-                <span class="boom-button" id="boom-up">개추 {{boomup}}</span>
+                <span class="boom-button" id="boom-up">추천 {{boomup}}</span>
                 <span class="boom-button" id="boom-down">비추 {{boomdown}}</span>
+                <a href="/correction/{{id}}" class="boom-button" id="correction">수정</a>
+                <sapn class="boom-button" id="delete-button">삭제하기</sapn>
             </div>
             <input id="article-id" type="hidden" value="{{id}}">
         {{/article}}

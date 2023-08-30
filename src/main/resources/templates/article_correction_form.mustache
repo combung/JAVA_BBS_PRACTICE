@@ -1,0 +1,28 @@
+{{>components/header}}
+    {{>components/navbar}}
+    {{#article}}
+    <div class="article-form-layout">
+        <form id ="data-form">
+            <div id="article-form-header">
+                <input id="article-id" value="{{id}}" type="hidden">
+                <div class="space">
+                    <span class="pretext">제목</span>
+                    <input class="text-input" id="title" type="text" value="{{title}}">
+                </div>
+                <div class="space">
+                    <span class="pretext">닉네임</span>
+                    <input class="text-input" id="auth" type="text" value="{{auth}}">
+                </div>
+            </div>
+            <div id="article-form-body">
+                <textarea class="text-input" id="content">{{content}}</textarea>
+            </div>
+        </form>
+        <div class="button-layout">
+            <span class="boom-button" id="submit-button">수정</span>
+            <a href="/articleview/{{id}}" class="boom-button" id="cancel-button">취소</a>
+        </div>
+    </div>
+    {{/article}}
+</div>
+{{>components/footer}}

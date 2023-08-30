@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import com.web.kms_practice.Entites.Article;
+import com.web.kms_practice.DTOs.ArticleDTO;
 import java.util.List;
 
 
@@ -41,5 +42,22 @@ public class PageController {
             model.addAttribute("article", targetArticle);
             return "/article_view";
         }
+    }
+
+    @GetMapping("/create")
+    public String createArticle(Model model){
+        model.addAttribute("filename", "article_form");
+        return "/article_form";
+    }
+
+    @GetMapping("/correction/{id}")
+    public String correctArticle(@PathVariable Long id, Model model){
+        Article targetArticle = articleRepository.findById(id).orElse(null);
+        if (targetArticle == null){
+            return "error_page";
+        }
+        model.addAttribute("filename", "article_correction_form");
+        model.addAttribute("article", targetArticle);
+        return "article_correction_form";
     }
 }
